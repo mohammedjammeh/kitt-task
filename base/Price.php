@@ -14,6 +14,7 @@ class Price {
     const PER_HOUR = 22;
     const PER_MINUTE = 2;
 
+    
     /*
      * Calculate Dynamic Prices
      */
