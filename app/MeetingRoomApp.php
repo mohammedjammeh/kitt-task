@@ -19,4 +19,4 @@ if(! intval(trim($bookingMins))) {
 
 // Price Response
 echo $meetingRoom->getPrice($bookingMins) . "\n";
-echo "Thank you, continuing...\n";
+echo "Thank you...\n";
