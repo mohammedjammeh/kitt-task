@@ -18,5 +18,7 @@ if(! intval(trim($bookingMins))) {
 } 
 
 // Price Response
-echo $meetingRoom->getPrice($bookingMins) . "\n";
-echo "Thank you...\n";
+$meetingRoomPriceInfo = $meetingRoom->getPrice($bookingMins);
+
+echo "\n" . intval($bookingMins) . " minutes for a meeting room will cost you a total amount of £{$meetingRoomPriceInfo->getTotal()} \n";
+echo "You are being charged £{$meetingRoomPriceInfo->getTariff()} {$meetingRoomPriceInfo->getTariffBy()}. \n";

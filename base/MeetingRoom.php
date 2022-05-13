@@ -13,7 +13,6 @@ class MeetingRoom {
         $this->price = new Price();
     }
  
-
     public function getPrice($minutes)
     {
         if(Duration::isMoreThanOrEqualToWeek($minutes)) {
@@ -23,19 +22,25 @@ class MeetingRoom {
         if(Duration::isMoreThanOrEqualToDay($minutes) && Duration::isLessThanWeek($minutes)) {
             $bookingPricePerDay = $this->price->calculateDaily($minutes);
 
-            return $bookingPricePerDay > PRICE::PER_WEEK ? PRICE::PER_WEEK : $bookingPricePerDay;
+            return $bookingPricePerDay->getTotal() > PRICE::PER_WEEK 
+                ? $this->price->oneWeek() 
+                : $bookingPricePerDay;
         }
 
         if(Duration::isMoreThanOrEqualToHour($minutes) && Duration::isLessThanDay($minutes)) {
             $bookingPricePerHour = $this->price->calculateHourly($minutes);
 
-            return $bookingPricePerHour > PRICE::PER_DAY ? PRICE::PER_DAY : $bookingPricePerHour;
+            return $bookingPricePerHour->getTotal() > PRICE::PER_DAY 
+                ? $this->price->oneDay()
+                : $bookingPricePerHour;
         }
 
         if(Duration::isMoreThanOrEqualToMinute($minutes) && Duration::isLessThanHour($minutes)) {
             $bookingPricePerMinute = $this->price->calculateMinutely($minutes); 
 
-            return $bookingPricePerMinute > PRICE::PER_HOUR ? PRICE::PER_HOUR : $bookingPricePerMinute;
+            return $bookingPricePerMinute->getTotal() > PRICE::PER_HOUR 
+                ? $this->price->oneHour() 
+                : $bookingPricePerMinute;
         }
 
         return 0;

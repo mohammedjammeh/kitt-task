@@ -8,8 +8,6 @@ class Duration {
     const MINUTES_IN_HOUR = 60;
     const MINUTE = 1;
 
-
-
     public static function isMoreThanOrEqualToWeek($minutes)
     {
         return $minutes >= self::MINUTES_IN_WEEK;
