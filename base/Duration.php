@@ -51,6 +51,7 @@ class Duration {
         return $minutes < self::MINUTES_IN_HOUR;
     }
 
+    
     /*
      * Number of Weeks In Minutes Calculators
      */
