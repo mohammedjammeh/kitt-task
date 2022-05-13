@@ -14,6 +14,10 @@ class Price {
     const PER_HOUR = 22;
     const PER_MINUTE = 2;
 
+
+    /*
+     * Calculated Dynamic Prices
+     */
     public function calculateWeekly($minutes)
     {
         $this->tariffBy = 'weekly';
@@ -49,9 +53,11 @@ class Price {
 
         return $this;
     }
+    
 
-
-
+    /*
+     * Singular Static Prices
+     */
     public function oneWeek()
     {
         $this->tariffBy = 'weekly';
@@ -80,7 +86,9 @@ class Price {
     }
 
 
-
+    /*
+     * Getters
+     */
     public function getTariffBy()
     {
         return $this->tariffBy;

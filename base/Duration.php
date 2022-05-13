@@ -8,6 +8,10 @@ class Duration {
     const MINUTES_IN_HOUR = 60;
     const MINUTE = 1;
 
+
+    /*
+     * More Than Or Equal To Minutes Checks
+     */
     public static function isMoreThanOrEqualToWeek($minutes)
     {
         return $minutes >= self::MINUTES_IN_WEEK;
@@ -29,7 +33,9 @@ class Duration {
     }
 
 
-
+    /*
+     * Less Than Minutes Checks
+     */
     public static function isLessThanWeek($minutes)
     {
         return $minutes < self::MINUTES_IN_WEEK;
@@ -45,8 +51,9 @@ class Duration {
         return $minutes < self::MINUTES_IN_HOUR;
     }
 
-
-
+    /*
+     * Number of Weeks In Minutes Calculators
+     */
     public static function numberOfWeeksIn($minutes)
     {
         return $minutes / self::MINUTES_IN_WEEK;
