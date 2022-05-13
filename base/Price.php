@@ -14,9 +14,8 @@ class Price {
     const PER_HOUR = 22;
     const PER_MINUTE = 2;
 
-
     /*
-     * Calculated Dynamic Prices
+     * Calculate Dynamic Prices
      */
     public function calculateWeekly($minutes)
     {
@@ -53,7 +52,7 @@ class Price {
 
         return $this;
     }
-    
+
 
     /*
      * Singular Static Prices
